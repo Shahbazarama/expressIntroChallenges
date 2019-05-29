@@ -19,6 +19,14 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/verify/:age', function(req, res) {
+  if(req.params.age > 13){
+    res.sendStatus(200)
+  } else {
+    res.sendStatus(403)
+  }
+});
+
 app.use(function(req, res) {
   res.sendStatus(404);
 });
